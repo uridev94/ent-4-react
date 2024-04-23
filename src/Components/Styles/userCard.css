@@ -1,0 +1,56 @@
+.user {
+  width: 250px;
+  background-color: #fff;
+  border: 0px solid;
+  box-shadow: rgba(210, 210, 210, 0.623) 3px 0px;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.user__name {
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.user__list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px 0;
+}
+
+.user__item {
+  display: flex;
+  flex-direction: column;
+  color: black;
+}
+
+.user__item span:first-child {
+  color: rgba(164, 164, 164, 0.726);
+  padding: 3px;
+}
+
+.user__buttons {
+  margin-top: 10px;
+  display: flex;
+  justify-content: end;
+  gap: 20px;
+}
+
+.user__btn--delete {
+  background-color: #af3134;
+  border: rgba(255, 0, 0, 0.626) 1px solid;
+  font-size: 20px;
+  padding: 8px;
+}
+
+.user__btn--edit {
+  background-color: rgba(216, 216, 216, 0.687);
+  border: rgb(229, 229, 229) 1px solid;
+  font-size: 20px;
+  padding: 8px;
+}
+
+.hydrated {
+  color: #fff;
+}
