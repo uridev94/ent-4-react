@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import "../Components/Styles/userForm.css";
+import { toast } from "sonner";
 const UserForm = ({
   createUser,
   updateUser,
@@ -11,7 +12,7 @@ const UserForm = ({
 }) => {
   /* first_name, last_name, email, password, birthday */
 
-  const { handleSubmit, register, reset } = useForm();
+  const { handleSubmit, register, reset, formState } = useForm();
 
   useEffect(() => {
     if (updateUser) {
@@ -25,8 +26,10 @@ const UserForm = ({
     if (updateUser) {
       editUser("users", data, updateUser.id);
       setUpdateUser(undefined);
+      toast.success('Usuario editado correctamente',{position: 'top-center'})
     } else {
       createUser("users", data);
+      toast.success('Usuario creado correctamente', {position:'bottom-center'})
     }
     setIsOpen(false);
     reset({
@@ -39,9 +42,7 @@ const UserForm = ({
     });
   };
 
-  // const onError = (errors:FieldErrors<user>) => {
-  //  console.log("form errors", errors)
-  // };
+
 
   const handleClose = () => {
     setIsOpen(false);
@@ -56,6 +57,7 @@ const UserForm = ({
     });
   };
 
+  console.log(formState.errors);
   return (
     <div className={`form__back ${isOpen && "active"}`}>
       <form className="form" onSubmit={handleSubmit(submit)}>
@@ -65,8 +67,9 @@ const UserForm = ({
         <h2 className="form__title">Edit/Add user</h2>
         <div className="form__item">
           <label htmlFor="first_name">First name</label>
-          <input {...register("first_name")} id="first_name" type="text" />
+          <input {...register("first_name",{required:'Este campo es obligatorio'})} id="first_name" type="text" />
         </div>
+        {formState.errors.first_name && <span className="form__error">{formState.errors.first_name.message}</span>}
         <div className="form__item">
           <label htmlFor="last_name">Last name</label>
           <input {...register("last_name")} id="last_name" type="text" />

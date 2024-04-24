@@ -1,4 +1,3 @@
-import React from "react";
 import './Styles/userCard.css';
 
 const UserCard = ({user, deleteUser, setUpdateUser }) => {
@@ -6,7 +5,7 @@ const UserCard = ({user, deleteUser, setUpdateUser }) => {
     // console.log(user)
 
     const handleDelete = () => {
-        deleteUser('users', user.id);
+        deleteUser('users', user);
     }
 
     const handleEdit = () => {
@@ -18,7 +17,7 @@ const UserCard = ({user, deleteUser, setUpdateUser }) => {
         <hr  className='user__line' />
         <ul className="user__list">
             <li className="user__item"><span>Email:</span><span>{user.email}</span></li>
-            <li className="user__item"><span>Birthday:</span><span><i class="fa-solid fa-gift"></i> {user.birthday}</span></li>
+            <li className="user__item"><span>Birthday:</span><span><i className="fa-solid fa-gift"></i> {user.birthday}</span></li>
         </ul>
         <hr className="user__line" />
         <div className="user__buttons">

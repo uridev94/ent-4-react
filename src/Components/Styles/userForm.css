@@ -41,7 +41,6 @@
 
 .form__title {
   text-align: left;
-  margin-bottom: 5px;
 }
 
 .form__item {
@@ -55,11 +54,9 @@
   border-radius: 3px;
   border: rgba(128, 128, 128, 0.443) 1px solid;
   padding: 4px 0;
-  margin-bottom: 5px;
 }
 
 .form__button {
-  margin-top: 5px;
   background-color: #555a88;
   color: #fff;
   padding: 5px;

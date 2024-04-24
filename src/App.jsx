@@ -19,6 +19,8 @@ function App() {
     editUser,
     isLoading,
     hasError,
+    userDeleted,
+    setUserDeleted,
   ] = useCrud(urlBase);
 
   useEffect(() => {
@@ -53,6 +55,10 @@ function App() {
             isOpen={isOpen}
             setIsOpen={setIsOpen}
           />
+          {
+            hasError?
+            <div><p>Error en la carga de usuarios</p></div>
+            :
           <div className="app__container">
             {users?.map((user) => (
               <UserCard
@@ -63,8 +69,15 @@ function App() {
               />
             ))}
           </div>
+          }
         </div>
       )}
+      {
+          userDeleted && (
+            <div><span>User {userDeleted.first_name} deleted</span>
+            <button onClick={()=>setUserDeleted()}>accept</button></div>
+          ) 
+      }
     </>
   );
 }
